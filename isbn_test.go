@@ -12,3 +12,11 @@ func TestNewISBN13(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, isbn13, isbn.ISBN13(9780575094185))
 }
+
+func TestISBN13_GS1(t *testing.T) {
+	assert.Equal(t, isbn.ISBN13(9780575094185).GS1(), uint64(978))
+}
+
+func TestISBN13_CheckDigit(t *testing.T) {
+	assert.Equal(t, isbn.ISBN13(9780575094185).CheckDigit(), uint64(5))
+}
