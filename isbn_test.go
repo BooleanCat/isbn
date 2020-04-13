@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/BooleanCat/isbn"
-	"github.com/BooleanCat/isbn/assert"
+	"github.com/BooleanCat/isbn/internal/assert"
 )
 
 func TestNewISBN13(t *testing.T) {
@@ -62,7 +62,7 @@ func TestISBN13_RegistrationGroup(t *testing.T) {
 
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
-			assert.Equal(t, isbn.ISBN13(tc.isbn).RegistrationGroup(), tc.want)
+			assert.Equal(t, tc.isbn.RegistrationGroup(), tc.want)
 		})
 	}
 }
